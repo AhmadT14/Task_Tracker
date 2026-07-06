@@ -5,7 +5,7 @@ let found = false;
 function updateTask(taskID, newTaskDescription) {
   if (!fs.existsSync(filePath)) {
     console.log("there are no tasks added");
-    return
+    return;
   }
   fs.readFile(filePath, "utf8", (err, data) => {
     if (err) {
@@ -17,6 +17,7 @@ function updateTask(taskID, newTaskDescription) {
       for (let task of jsonObject.tasks) {
         if (task.id === Number(taskID)) {
           task.description = newTaskDescription;
+          task.updatedAt = new Date().toISOString();
           found = true;
           break;
         }

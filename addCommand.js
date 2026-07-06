@@ -2,7 +2,7 @@ import fs from "node:fs";
 
 const filePath = "./newUser.json";
 let newTask = {};
-function addtask(description) {
+function addTask(description) {
   if (fs.existsSync(filePath)) {
     fs.readFile(filePath, "utf8", (err, data) => {
       if (err) {
@@ -51,4 +51,4 @@ function addtask(description) {
     });
   }
 }
-export { addtask };
+export { addTask };

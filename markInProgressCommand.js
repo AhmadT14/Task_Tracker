@@ -1,7 +1,7 @@
 import fs from "node:fs";
 
 const filePath = "./newUser.json";
-let found=false;
+let found = false;
 function markInProgress(taskID) {
   if (fs.existsSync(filePath)) {
     fs.readFile(filePath, "utf8", (err, data) => {
@@ -20,17 +20,17 @@ function markInProgress(taskID) {
           }
         }
         if (found) {
-        const updatedJson = JSON.stringify(jsonObject, null, 2);
-        fs.writeFile(filePath, updatedJson, "utf8", (err) => {
-          if (err) {
-            console.error("Error writing file:", err);
-            return;
-          }
-          console.log("JSON file successfully updated!");
-        });
-    } else {
-      console.error("Task not found");
-    }
+          const updatedJson = JSON.stringify(jsonObject, null, 2);
+          fs.writeFile(filePath, updatedJson, "utf8", (err) => {
+            if (err) {
+              console.error("Error writing file:", err);
+              return;
+            }
+            console.log("JSON file successfully updated!");
+          });
+        } else {
+          console.error("Task not found");
+        }
       } catch (parseErr) {
         console.error("Error parsing JSON string:", parseErr);
       }
