@@ -2,6 +2,7 @@
 import { Command } from "commander";
 import { addtask } from "./addCommand.js";
 import { updateTask } from "./updateCommand.js";
+import { deleteTask } from "./deleteCommand.js";
 const program = new Command();
 
 program
@@ -23,5 +24,12 @@ program
   .argument("<newTaskDescription>", "new task description")
   .action((taskID, newTaskDescription) => {
     updateTask(taskID, newTaskDescription);
+  });
+    program
+  .command("delete")
+  .description("delete a specific task")
+  .argument("<taskID>", "taskID to delete")
+  .action((taskID) => {
+    deleteTask(taskID);
   });
 program.parse();
