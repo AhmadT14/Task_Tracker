@@ -12,13 +12,12 @@ function addTask(description) {
       try {
         const jsonObject = JSON.parse(data);
         newTask = {
-          id: null,
+          id: Math.max(0, ...jsonObject.tasks.map((task) => task.id)) + 1,
           description: description,
           status: "todo",
           createdAt: new Date().toISOString(),
           updatedAt: null,
         };
-        newTask.id = jsonObject.tasks.length + 1;
         jsonObject.tasks.push(newTask);
         const updatedJson = JSON.stringify(jsonObject, null, 2);
         fs.writeFile(filePath, updatedJson, "utf8", (err) => {
