@@ -25,7 +25,7 @@ function addTask(description) {
             console.error("Error writing file:", err);
             return;
           }
-          console.log("JSON file successfully updated!");
+          console.log("Task added successfully!");
         });
       } catch (parseErr) {
         console.error("Error parsing JSON string:", parseErr);
@@ -46,7 +46,7 @@ function addTask(description) {
         console.error("Error creating file:", err);
         return;
       }
-      console.log("New JSON file created successfully!");
+      console.log("Task added successfully!");
     });
   }
 }

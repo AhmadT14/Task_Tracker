@@ -26,7 +26,7 @@ function markInProgress(taskID) {
               console.error("Error writing file:", err);
               return;
             }
-            console.log("JSON file successfully updated!");
+            console.log("Task marked as in-progress successfully!");
           });
         } else {
           console.error("Task not found");
@@ -36,7 +36,9 @@ function markInProgress(taskID) {
       }
     });
   } else {
-    console.error("File not found");
+    console.error(
+      "There are no tasks to mark as in-progress. Please add a task first.",
+    );
   }
 }
 export { markInProgress };
