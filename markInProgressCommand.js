@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-const filePath = "./newUser.json";
+const filePath = "./tasks.json";
 let found = false;
 function markInProgress(taskID) {
   if (fs.existsSync(filePath)) {

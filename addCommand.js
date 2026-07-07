@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-const filePath = "./newUser.json";
+const filePath = "./tasks.json";
 let newTask = {};
 function addTask(description) {
   if (fs.existsSync(filePath)) {
@@ -41,7 +41,7 @@ function addTask(description) {
     };
     const jsonString = JSON.stringify({ tasks: [newTask] }, null, 2);
 
-    fs.writeFile("./newUser.json", jsonString, "utf8", (err) => {
+    fs.writeFile("./tasks.json", jsonString, "utf8", (err) => {
       if (err) {
         console.error("Error creating file:", err);
         return;

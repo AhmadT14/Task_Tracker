@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-const filePath = "./newUser.json";
+const filePath = "./tasks.json";
 const allowedStatuses = ["done", "in-progress", "todo"];
 function listTasks(status) {
   if (fs.existsSync(filePath)) {
